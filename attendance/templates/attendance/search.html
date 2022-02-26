@@ -1,0 +1,39 @@
+{% extends "attendance/layout.html" %}
+
+{% block body %}
+    <div>
+        <input type="text" id="search" onkeyup="search()" placeholder="Enter Name">
+        <table class="table table-bordered" id="names">
+            <thead>
+                <th scope="col">Position Description</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Name</th>
+                <th scope="col">Sub-Unit 1</th>
+                <th scope="col">Sub-Unit 2</th>
+                <th scope="col">Status</th>
+                <th scope="col">Status Start</th>
+                <th scope="col">Status End</th>
+                <th scope="col">Comments</th>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    {% if row|get_item:'Name' != "No Data" %}
+                        <tr>
+                            <td>{{ row|get_item:'Position Description' }}</td>
+                            <td>{{ row|get_item:'Rank' }}</td>
+                            <td>{{ row|get_item:'Name' }}</td>
+                            <td>{{ row|get_item:'Sub-Unit 1' }}</td>
+                            <td>{{ row|get_item:'Sub-Unit 2' }}</td>
+                            <td>{{ row|get_item:'Status' }}</td>
+                            <td>{{ row|get_item:'Status Start' }}</td>
+                            <td>{{ row|get_item:'Status End' }}</td>
+                            <td>{{ row|get_item:'Comments' }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

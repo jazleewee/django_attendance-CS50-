@@ -1,0 +1,66 @@
+<div class="accordion-item">
+    <div>
+        <h2 class="accordion-header" id="{{ SubUnit1_value|cut:' '|cut:'&' }}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{SubUnit1_value|cut:' '|cut:'&'}}-attendance" aria-expanded="false" aria-controls="{{SubUnit1_value|cut:' '|cut:'&'}}-attendance">
+                <b>{{ SubUnit1_value }}</b>
+                {% if SubUnit1_value != "HL 421 SAR" %}
+                    <a class="attendance-values">Present: {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"Present"|get_count }}</a>
+                    <a class="attendance-values">Absent (MC): {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"Absent (MC)"|get_count }}</a>                    
+                    <a class="attendance-values">Absent (SPECIAL): {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"Absent (SPECIAL)"|get_count }}</a>
+                    <a class="attendance-values">On Leave: {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"On Leave"|get_count }}</a>
+                    <a class="attendance-values">On Course: {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"On Course"|get_count }}</a>
+                {% endif %}                       
+ 
+            </button>
+        </h2>
+    </div>
+    <div id="{{SubUnit1_value|cut:' '|cut:'&'}}-attendance" class="accordion-collapse collapse" aria-labelledby="{{SubUnit1_value|cut:' '|cut:'&'}}">
+        <div class="accordion-body">
+            {% for SubUnit2_value in SubUnit2_values %}
+                <!--Create Nested accordion table-->     
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="{{ SubUnit1_value|cut:' '|cut:'&' }}-{{ SubUnit2_value|cut:' '|cut:'&' }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ SubUnit1_value|cut:' '|cut:'&' }}-{{ SubUnit2_value|cut:' '|cut:'&' }}-attendance" aria-expanded="false" aria-controls="{{ SubUnit1_value|cut:' '|cut:'&' }}-{{ SubUnit2_value|cut:' '|cut:'&' }}-attendance">
+                            <b>{{ SubUnit2_value }}</b>
+                            <a class="attendance-values">Present: {{ attendance|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value|status_filter:"Present"|get_count }}</a>
+                            <a class="attendance-values">Absent (MC): {{ attendance|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value|status_filter:"Absent (MC)"|get_count }}</a>
+                            <a class="attendance-values">Absent (SPECIAL): {{ attendance|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value|status_filter:"Absent (SPECIAL)"|get_count }}</a>
+                            <a class="attendance-values">On Leave: {{ attendance|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value|status_filter:"On Leave"|get_count }}</a>
+                            <a class="attendance-values">On Course: {{ attendance|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value|status_filter:"On Course"|get_count }}</a>
+                        </button>
+                    </h3>
+                    <div id="{{ SubUnit1_value|cut:' '|cut:'&' }}-{{ SubUnit2_value|cut:' '|cut:'&' }}-attendance" class="accordion-collapse collapse" aria-labelledby="{{ SubUnit1_value|cut:' '|cut:'&' }}-{{ SubUnit2_value|cut:' '|cut:'&' }}}">
+                        <div class="accordion-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <th scope="col">Position Description</th>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Status Start</th>
+                                        <th scope="col">Status End</th>
+                                        <th scope="col">Comments</th>
+                                    </thead>
+                                    <tbody>
+                                        {% for row in data|SubUnit1_filter:SubUnit1_value|SubUnit2_filter:SubUnit2_value %}
+                                            <tr>
+                                                <td>{{ row|get_item:'Position Description' }}</td>
+                                                <td>{{ row|get_item:'Rank' }}</td>
+                                                <td>{{ row|get_item:'Name' }}</td>
+                                                <td class="{{ row|get_item:'Status'|cut:' '|cut:'('|cut:')' }}">{{ row|get_item:'Status' }}</td>
+                                                <td>{{ row|get_item:'Status Start' }}</td>
+                                                <td>{{ row|get_item:'Status End' }}</td>
+                                                <td>{{ row|get_item:'Comments' }}</td>
+                                            </tr>
+                                        {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+            {% endfor %}
+        </div>
+    </div>
+</div>

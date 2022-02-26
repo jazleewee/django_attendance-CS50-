@@ -1,0 +1,45 @@
+#section-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.accordion-button {
+    display: grid;
+    font-size: 12px;
+}
+
+.attendance-values {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+
+.attendance-values:hover {
+    color: black;
+}
+
+body {
+    font-size: 12px;
+}
+
+#summary-table {
+    text-align: center;   
+}
+
+#estab-table {
+    text-align: center;   
+}
+
+hr {
+    border-width: 0;
+    color:black;
+    background-color:black;
+    opacity: 100;
+}
+
+#search {
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }

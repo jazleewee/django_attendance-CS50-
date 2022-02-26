@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "upheld-apricot-335405",
+  "private_key_id": "d29a8272a326204b67437c3ef7de4884a20c7625",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCtTVKhJlsLb2T/\negqEuiAZsIp7THWV9X7smuGofi2NZavjC2AtbZ1b18lmKlsANL6sYOJShTlxUF+B\n1lwWrtJG0qi2uukldBtw5PsJnYwkrj2qgwFvZC3KQuqEHMgmjpwna/eDqIExMUxV\nTIUPSix3mhNNUcG2WbubVjPYpa3JakMxvAaxCaE9TqiWsWcQymcEOY6KoTzeuvNi\n9FZ+lUaVW37CZxiAfwqtNvFuiSf5m34qNTCcUAMcdb9ExN1xDBdZ2JdpdVmSiTd2\nQL9a2wWs3Tjl9YNcIaSGFNenRLOOURhnAhBG1J4vCIP9DPNomm/GEQ4zRqFhyhQz\n5GbMSEQjAgMBAAECggEAGUGOjDu5wwXd8zmG9ObnLLdEx0lSTaN0dujvgA27d8Lc\ndP9Aaf5yk2L0T/ZWQsZtD1QjR6FwyKnM8XAbBZc+v+GNguvkdHfiU+abC0Cxntrh\n08q519ECt1pfMRe8t5nK+hfK/538Df5AQKIhNiQ6LMgAjiEfGQMkyzOZ5LXoiNS8\n7Tu33BMaUbbWVGp1CuqjLX4dASIsCZbYSiX0LFmcRQvGu/ZGuRZpd0PtMWsOC7SV\nyVPJXRJGQYDD8hnkxF2/PVsn99onNfdUmCK+XlDDalaNBqio443pfyo6N9WsNa6x\nwJJpZax2vR/Ohx20grZgwbbjP8Ci3ZKYacnUlJH7IQKBgQDqcur5qOSaAcqyZSX/\nPxXVuEHIrRIhDyROYUjc8/3q8J/cSy9WuIV6aUXMcQLxF56+D+cIvzmwUnuoddlQ\nmpPT93YhtohJ1AKHvgEF9SpPikFA98WfEJXlp6ecfnBZsnsM2bQjksB8Q0jkyY97\nyw8Sbuzu30teFEu797wDmCov8QKBgQC9O301BzUgZ+XYyIjEOj9aeut08GyHDtkK\nPlHO+5LdfR29wjaxeZIxyrMHT0Sq3ioP2G8NR0P2AFVzOvFDSDW/X9q+vPlc0+12\ndHsNuCk6I7xkE6qwzMVRbZ5FbG5IPUTyPgrIYeclLNbsZa/QblHU714ZagRcCWZ9\nbYzPbN9JUwKBgEtg3VmdyroVX2VSDhBt6QhI8KWjt5N3edXVg4a+z+HMsakzZyn7\ns7ayyCU+JJL9ZCV5mW9/g/3D10xHb7JxsJvTEWEvfcw25QVduph+xbbDHc3Um+5T\nd85ZxBMVt+uu7c8o47kYQtjxDSu5/m7vz42+qmD23BWIcv0hXorNTqsRAoGAQwxy\nB7j/DPVjTlV3iDevPOryxKNvgMc1Bdkg+XrQBeSQBi1rXaTatQPCPWPLy9MeCjFA\n3+6RWPezTzniRFmwmZdoFU8197srl14cP7cx/GSvGrKRN0XG4Fw7yRNrW/NBm6d6\nAJgX42co2+gHzI1aN1189PpIgyfdhbGsQ86qqvsCgYEA0yOPolzBKAXom8Spg2CH\npJ5F0s6tkrMDmPe6aqlca4fU/1IZZvt6F4cufnFkK/EhGdZLbJCJn4UNTj8DWMo1\nBvRos8bFZcgZSvRP1M2a1S45nkpU2iq2e5ZWWlINKAvtuNwRjzQkpsA1vT5uztXH\ndHnAKA3gneKnMLUDzk+WgcY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "attendance@upheld-apricot-335405.iam.gserviceaccount.com",
+  "client_id": "102637540719582103894",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/attendance%40upheld-apricot-335405.iam.gserviceaccount.com"
+}

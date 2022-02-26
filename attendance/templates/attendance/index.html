@@ -1,0 +1,62 @@
+{% extends "attendance/layout.html" %}
+
+{% block body %}
+    <div class="container-fluid">
+        <a id="section-title">ABC Food Company (caa {{ update }})</a>
+        <div class="table-responsive">
+            <table id="summary-table" class="table table-bordered">
+                <thead>
+                    <td></td>
+                    <th scope="col">Total</th>
+                    <th scope="col">Present</th>
+                    <th scope="col">Absent</th>
+                    <th scope="col">On Leave</th>
+                    <th scope="col">On Course</th>
+                    <th scope="col">% Present/Total</th>
+                </thead>
+                <tbody>
+                    {% for SubUnit1_value in SubUnit1_values %}
+                        {% if SubUnit1_value != "HL 421 SAR" %}
+                            <tr>    
+                                <th>{{ SubUnit1_value }}</th>
+                                <td></td>
+                                <td>{{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"Present"|get_count }}</td>
+                                <td>{{ attendance|SubUnit1_filter:SubUnit1_value|get_all_absent }}</td>
+                                <td>{{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"On Leave"|get_count }}</td>
+                                <td>{{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:"On Course"|get_count }}</td>
+                                <td></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <th>TOTAL</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+    </div>
+
+    <div class="container-fluid" id="dashboard-absentmc">
+        {% include "attendance/section.html" with section="Absent (MC)" %}
+    </div>
+
+    <div class="container-fluid" id="dashboard-absentspecial">
+        {% include "attendance/section.html" with section="Absent (SPECIAL)" %}
+    </div>
+
+    <div class="container-fluid" id="dashboard-onleave">
+        {% include "attendance/section.html" with section="On Leave" %}
+    </div>
+
+    <div class="container-fluid" id="dashboard-oncourse">
+        {% include "attendance/section.html" with section="On Course" %}
+    </div>
+
+{% endblock %}

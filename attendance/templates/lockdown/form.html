@@ -1,0 +1,22 @@
+{% extends "lockdown/base.html" %}
+
+{% block title %}Attendance{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Incorrect Password</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  {{ form }}<br>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+{% endblock %}

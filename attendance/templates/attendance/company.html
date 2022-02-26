@@ -1,0 +1,25 @@
+{% extends "attendance/layout.html" %}
+
+{% block body %}
+    <div>
+        <p id="section-title">
+            {% if company == "all" %}
+                ABC Food Company (caa {{ update }})
+            {% else %}
+                {{ company|upper }} (caa {{ update }})
+            {% endif %}
+        </p>
+    </div>
+
+    <h1>{{ Subunit1 }}</h1>
+    <div class="accordion">
+        {% for SubUnit1_value in SubUnit1_values %}
+            {% if SubUnit1_value in SubUnit1 %}
+                {% include "attendance/tables.html" with SubUnit2_values=data|get_SubUnit2:SubUnit1_value %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+
+
+{% endblock %}

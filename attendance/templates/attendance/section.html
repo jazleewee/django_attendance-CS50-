@@ -1,0 +1,49 @@
+<a id="section-title">{{ section }}: {{ attendance|status_filter:section|get_count }}</a>
+{% for SubUnit1_value in SubUnit1_values %}
+    {% if attendance|SubUnit1_filter:SubUnit1_value|status_filter:section|get_count != 0%}
+        <div class="accordion {{ section|lower|cut:' '|cut:'('|cut:')' }}">
+            <div class="accordion-item">
+                <div>
+                    <h2 class="accordion-header" id="{{ section|lower|cut:' '|cut:'('|cut:')' }}-{{ SubUnit1_value|cut:' '|cut:'&' }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ section|lower|cut:' '|cut:'('|cut:')' }}-{{SubUnit1_value|cut:' '|cut:'&'}}-attendance" aria-expanded="false" aria-controls="{{ section|lower|cut:' '|cut:'('|cut:')' }}-{{SubUnit1_value|cut:' '|cut:'&'}}-attendance">
+                            <b>{{ SubUnit1_value }}: {{ attendance|SubUnit1_filter:SubUnit1_value|status_filter:section|get_count }}</b>
+                        </button>
+                    </h2>
+                </div>
+            </div>
+            <div id="{{ section|lower|cut:' '|cut:'('|cut:')' }}-{{SubUnit1_value|cut:' '|cut:'&'}}-attendance" class="accordion-collapse collapse" aria-labelledby="{{ section|lower|cut:' '|cut:'('|cut:')' }}-{{SubUnit1_value|cut:' '|cut:'&'}}">
+                <div class="accordion-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th scope="col">Position Description</th>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Status Start</th>
+                                <th scope="col">Status End</th>
+                                <th scope="col">Comments</th>
+                            </thead>
+                            <tbody>
+                                {% for row in data|SubUnit1_filter:SubUnit1_value|status_filter:section %}
+                                    {% if row|get_item:'Name' != "No Data" %}
+                                        <tr>
+                                            <td>{{ row|get_item:'Position Description' }}</td>
+                                            <td>{{ row|get_item:'Rank' }}</td>
+                                            <td>{{ row|get_item:'Name' }}</td>
+                                            <td>{{ row|get_item:'Status' }}</td>
+                                            <td>{{ row|get_item:'Status Start' }}</td>
+                                            <td>{{ row|get_item:'Status End' }}</td>
+                                            <td>{{ row|get_item:'Comments' }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+<hr>
